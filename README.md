@@ -82,7 +82,8 @@ also it was based on my past years research and experiments about Go Channels an
 [Channels And GoRoutines In AjSharp](http://ajlopez.wordpress.com/2009/12/30/channels-and-goroutines-in-ajsharp-part-2/),
 [GoRoutines And Channels In C#](http://ajlopez.wordpress.com/2010/01/02/goroutines-and-channels-in-c/),
 [Queue Channels In AjSharp](http://ajlopez.wordpress.com/2010/01/27/queue-channels-in-ajsharp/), and now, it's time
-to implement something in JavaScript/Node.js.
+to implement something in JavaScript/Node.js. Many ideas were inspired by [Storm project](http://storm-project.net/): you
+can see the functions as kind of bolts and spouts.
 
 ## Contribution
 
