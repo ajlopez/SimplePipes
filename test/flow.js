@@ -75,3 +75,23 @@ exports['listen two pipes two fires'] = function (test) {
     flow.pipe1.send(1);
     flow.pipe2.send(2);
 };
+
+exports['two chained steps'] = function (test) {
+    test.expect(2);
+
+    var flow = simplepipes.createFlow(
+        "pipe1",
+        function (val) {
+            test.equal(val, 1);
+            this.pipe2.send(val + 1);
+        },
+        "pipe2",
+        function (val) {
+            test.equal(val, 2);
+            test.done();
+        }
+    );
+
+    flow.start();
+    flow.pipe1.send(1);
+};
