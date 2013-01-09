@@ -75,6 +75,13 @@ npm test
 
 [Collatz sample](https://github.com/ajlopez/SimplePipes/tree/master/samples/collatz) Collatz problem sample.
 
+## To do
+
+- Add flow1.pipe1.pipe(flow2.pipe2) to chaing pipes.
+- Pipes supporting many output pipes.
+- Add distributed pipes.
+- Pipes implemented wrapping streams.
+
 ## Inception
 
 This work was inspired by [Circuit](https://github.com/tatumizer/circuit) by [Tatumizer](https://github.com/tatumizer), but
