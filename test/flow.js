@@ -95,3 +95,15 @@ exports['two chained steps'] = function (test) {
     flow.start();
     flow.pipe1.send(1);
 };
+
+
+exports['define pipes'] = function (test) {
+    var flow = simplepipes.createFlow(
+        "pipe1", "pipe2", "pipe3"
+    );
+
+    test.ok(flow.pipe1);
+    test.ok(flow.pipe2);
+    test.ok(flow.pipe3);
+    test.done();
+};
