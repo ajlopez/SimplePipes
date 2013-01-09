@@ -27,6 +27,6 @@ var flow = simplepipes.createFlow(
 
 flow.start();
 
-for (var k = 1; k < 100; k++)
+for (var k = 1; k < 1000; k++)
     flow.enter.send([k]);
 

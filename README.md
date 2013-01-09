@@ -78,10 +78,11 @@ npm test
 ## Inception
 
 This work was inspired by [Circuit](https://github.com/tatumizer/circuit) by [Tatumizer](https://github.com/tatumizer), but
-it was based on my research about Go Channels and distributed applications I implemented in other technologies (see
+also it was based on my past years research and experiments about Go Channels and distributed applications. I had implemented in other technologies (see
 [Channels And GoRoutines In AjSharp](http://ajlopez.wordpress.com/2009/12/30/channels-and-goroutines-in-ajsharp-part-2/),
 [GoRoutines And Channels In C#](http://ajlopez.wordpress.com/2010/01/02/goroutines-and-channels-in-c/),
-[Queue Channels In AjSharp](http://ajlopez.wordpress.com/2010/01/27/queue-channels-in-ajsharp/)
+[Queue Channels In AjSharp](http://ajlopez.wordpress.com/2010/01/27/queue-channels-in-ajsharp/), and now, it's time
+to implement something in JavaScript/Node.js.
 
 ## Contribution
 
