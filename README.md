@@ -1,6 +1,6 @@
 # SimplePipes
 
-Simple middleware layer for web applications, inspired by Connect and others. Work in Progress.
+Simple flow library based on pipes.
 
 ## Installation
 
