@@ -13,3 +13,12 @@ exports['send and receive'] = function (test) {
     test.equal(pipe.receive(), 1);
     test.done();
 };
+
+exports['sends and receives'] = function (test) {
+    var pipe = simplepipes.createPipe();
+    pipe.send(1);
+    pipe.send(2);
+    test.equal(pipe.receive(), 1);
+    test.equal(pipe.receive(), 2);
+    test.done();
+};
