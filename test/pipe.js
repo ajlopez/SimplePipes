@@ -1,7 +1,7 @@
 
 var simplepipes = require('..');
 
-exports['createPupe defined'] = function (test) {
+exports['createPipe defined'] = function (test) {
     test.ok(simplepipes.createPipe);
     test.equal(typeof simplepipes.createPipe, 'function');
     test.done();
