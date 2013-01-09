@@ -16,6 +16,52 @@ Reference in your program:
 var simplepipes = require('simplepipes');
 ```
 
+Define and use a flow
+```js
+var flow = simplepipes.createFlow(
+    "pipe1",
+    function (val) {
+        console.log(val);
+        this.pipe2.send(val + 1);
+    },
+    "pipe2",
+    function (val) {
+        console.log(val);
+        test.done();
+    }
+);
+
+flow.start();
+flow.pipe1.send(1);
+```
+The output:
+```
+1
+2
+```
+
+The strings define the pipes to be used. Each function is preceded by a list of pipe names defined in the flow.
+Each function fires when they associated pipes have values. The values are given to the function as arguments.
+
+You can define initial functions without associated pipes. They are fired once after starting the flow.
+
+```js
+var flow = simplepipes.createFlow(
+    function() { this.pipe1.send(1);
+    "pipe1",
+    function (val) {
+        console.log(val);
+        this.pipe2.send(val + 1);
+    },
+    "pipe2",
+    function (val) {
+        console.log(val);
+        test.done();
+    }
+);
+```
+with the same output.
+
 ## Development
 
 ```
@@ -27,7 +73,7 @@ npm test
 
 ## Samples
 
-TBD
+[Collatz sample](https://github.com/ajlopez/SimplePipes/tree/master/samples/collatz) Collatz problem sample.
 
 ## Inception
 
