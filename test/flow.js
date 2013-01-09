@@ -33,3 +33,21 @@ exports['listen pipe'] = function (test) {
     flow.start();
     flow.pipe1.send(1);
 };
+
+exports['listen two pipes'] = function (test) {
+    test.expect(2);
+
+    var flow = simplepipes.createFlow(
+        "pipe1", "pipe2",
+        function (val1, val2) {
+            console.log('enter');
+            test.equal(val1, 1);
+            test.equal(val2, 2);
+            test.done();
+        }
+    );
+
+    flow.start();
+    flow.pipe1.send(1);
+    flow.pipe2.send(2);
+};
