@@ -1,0 +1,17 @@
+{ "name": "simplepipes"
+, "description": "Simple flow library based on pipes"
+, "keywords": [ "flow", "pipes", "distributed" ]
+, "version": "0.0.1"
+, "author": "Angel 'Java' Lopez <webmaster@ajlopez.com> (http://www.ajlopez.com)"
+, "repository": { "type": "git", "url": "git://github.com/ajlopez/SimplePipes.git" }
+, "main": "./lib/simplepipes.js"
+, "engines": { "node": ">= 0.6.0 && < 0.9.0" }
+, "scripts": {
+    "test": "nodeunit test"
+  }
+, "dependencies": {
+  }
+, "devDependencies": {
+    "nodeunit": ">= 0.7.4"
+  }
+}
