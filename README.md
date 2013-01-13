@@ -92,6 +92,10 @@ also it was based on my past years research and experiments about Go Channels an
 to implement something in JavaScript/Node.js. Many ideas were inspired by [Storm project](http://storm-project.net/): you
 can see the functions as kind of bolts and spouts.
 
+## Reference
+
+- [Dr. Dobb's | Go Parallel | Dataflow Programming: Handling Huge Data Loads Without Adding Complexity | Dr. Dobb's and Intel Go Parallel Programming](http://drdobbs.com/go-parallel/article/231400148)
+
 ## Contribution
 
 Feel free to [file issues](https://github.com/ajlopez/SimplePipes) and submit
