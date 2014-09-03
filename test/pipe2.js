@@ -40,3 +40,28 @@ exports['emit to next pipe'] = function (test) {
     
     p.post(1);
 };
+
+exports['emit to named pipe'] = function (test) {
+    test.async();
+    
+    var p = pipe(function (msg) { 
+        if (msg % 2)
+            this.emit("odd", msg);
+        else
+            this.emit("even", msg);
+    });
+    
+    p
+    .pipe("even", pipe(function (msg) {
+        test.ok(msg);
+        test.equal(msg % 2, 0);
+    }))
+    .pipe("odd", pipe(function (msg) {
+        test.ok(msg);
+        test.equal(msg % 2, 1);
+        test.done();
+    }));
+    
+    p.post(2);
+    p.post(1);
+};
