@@ -27,6 +27,20 @@ exports['create pipe, chain with pipe, post'] = function (test) {
     p.post(1);
 };
 
+exports['create pipe, chain with pipe using async'] = function (test) {
+    test.async();
+    
+    var p = pipe(function (msg, next) { next(null, msg + 1); });
+    
+    p.pipe(function (msg) {
+        test.ok(msg);
+        test.equal(msg, 2);
+        test.done();
+    });
+    
+    p.post(1);
+};
+
 exports['emit to next pipe'] = function (test) {
     test.async();
     
