@@ -27,6 +27,28 @@ exports['create pipe, chain with pipe, post'] = function (test) {
     p.post(1);
 };
 
+exports['create pipe, chain with process and pipe, post'] = function (test) {
+    var value = 0;
+    
+    test.async();
+    
+    var p = pipe(function (msg) { return msg + 1; });
+    
+    p
+    .process(function (msg) {
+        test.equal(msg, 2);
+        value = msg;
+    })
+    .pipe(function (msg) {
+        test.ok(msg);
+        test.equal(msg, 2);
+        test.equal(value, 2);
+        test.done();
+    });
+    
+    p.post(1);
+};
+
 exports['create pipe, chain with pipe using async'] = function (test) {
     test.async();
     
