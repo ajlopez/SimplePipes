@@ -1,32 +1,34 @@
 
-var simplepipes = require('../..');
+var pipe = require('../..').pipe;
 
-var flow = simplepipes.createFlow(
-    'enter',
-    function (vals) {
+var collatz =
+    pipe(function (vals) {
         if (vals[0] === 1)
             console.dir(vals);
         else if (vals[0] % 2 === 0)
-            this.even.send(vals);
+            this.emit("even", vals);
         else
-            this.odd.send(vals);
-    },
-    'odd',
-    function (vals) {
+            this.emit("odd", vals);
+    });
+    
+    
+    collatz.pipe("odd", pipe(function (vals) {
         var val = vals[0];
         vals.unshift( val * 3 + 1);
-        this.enter.send(vals);
-    },
-    'even',
-    function (vals) {
+        return vals;
+    }))
+    .pipe("even", pipe(function (vals) {
         var val = vals[0];
-        vals.unshift(val / 2);
-        this.enter.send(vals);
-    }
-);
-
-flow.start();
+        vals.unshift( val / 2);
+        return vals;
+    }))
+    .pipe(function (vals) {
+        if (vals[0] === 1)
+            console.dir(vals);
+        else
+            collatz.post(vals);
+    });
 
 for (var k = 1; k < 1000; k++)
-    flow.enter.send([k]);
+    collatz.post([k]);
 
