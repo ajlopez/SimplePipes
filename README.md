@@ -18,6 +18,12 @@ var simplepipes = require('simplepipes');
 
 TBD
 
+## Versions
+
+- 0.0.1 Published
+- 0.0.2 Published, simplified to use next
+- 0.0.3 Published, removing this.emit, use next with named pipe
+
 ## Development
 
 ```
