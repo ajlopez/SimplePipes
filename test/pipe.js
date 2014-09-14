@@ -63,28 +63,14 @@ exports['create pipe, chain with pipe using async'] = function (test) {
     p.post(1);
 };
 
-exports['emit to next pipe'] = function (test) {
+exports['next to named pipe'] = function (test) {
     test.async();
     
-    var p = pipe(function (msg) { this.emit(msg + 1); });
-    
-    p.pipe(function (msg) {
-        test.ok(msg);
-        test.equal(msg, 2);
-        test.done();
-    });
-    
-    p.post(1);
-};
-
-exports['emit to named pipe'] = function (test) {
-    test.async();
-    
-    var p = pipe(function (msg) { 
+    var p = pipe(function (msg, next) { 
         if (msg % 2)
-            this.emit("odd", msg);
+            next(null, "odd", msg);
         else
-            this.emit("even", msg);
+            next(null, "even", msg);
     });
     
     p
@@ -102,14 +88,14 @@ exports['emit to named pipe'] = function (test) {
     p.post(1);
 };
 
-exports['emit to named pipe and continue'] = function (test) {
+exports['next to named pipe and continue'] = function (test) {
     test.async();
     
-    var p = pipe(function (msg) { 
+    var p = pipe(function (msg, next) { 
         if (msg % 2)
-            this.emit("odd", msg);
+            next(null, "odd", msg);
         else
-            this.emit("even", msg);
+            next(null, "even", msg);
     });
     
     p

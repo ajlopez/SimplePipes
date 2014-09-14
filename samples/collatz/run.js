@@ -2,13 +2,13 @@
 var pipe = require('../..').pipe;
 
 var collatz =
-    pipe(function (vals) {
+    pipe(function (vals, next) {
         if (vals[0] === 1)
             console.dir(vals);
         else if (vals[0] % 2 === 0)
-            this.emit("even", vals);
+            next(null, "even", vals);
         else
-            this.emit("odd", vals);
+            next(null, "odd", vals);
     });
     
     
